@@ -8,10 +8,14 @@
 
 import UIKit
 
+protocol UserListViewDelegate: class {
+    func userListView(userListView: UserListView, didTapItemAt index: Int)
+}
+
 class UserListView: UIView {
 
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    weak var delegate: UserListViewDelegate?
     var items: [UserDTO] = []
 
     override func awakeFromNib() {
@@ -27,7 +31,6 @@ class UserListView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-
     }
 }
 
@@ -46,6 +49,6 @@ extension UserListView: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //delegate?.roomListView(roomListView: self, didTapItemAt: indexPath.row)
+        delegate?.userListView(userListView: self, didTapItemAt: indexPath.row)
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 protocol UserListRouterProtocol {
     var viewController: UserListViewController? { get }
     var dataSource: UserListDataSource? { get }
+    func navigateToUserDetails(with userDTO: UserDTO?)
 }
 
 final class UserListRouter {
@@ -28,4 +29,10 @@ final class UserListRouter {
 
 // MARK: - UserListRouterProtocol
 
-extension UserListRouter: UserListRouterProtocol {}
+extension UserListRouter: UserListRouterProtocol {
+    func navigateToUserDetails(with userDTO: UserDTO?) {
+        let userDetailsViewContorller = UserDetailViewController()
+        userDetailsViewContorller.router.dataSource?.userDTO = userDTO
+        self.viewController?.navigationController?.pushViewController(userDetailsViewContorller, animated: true)
+        }
+}

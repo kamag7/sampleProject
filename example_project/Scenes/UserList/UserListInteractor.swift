@@ -25,4 +25,5 @@ class UserListInteractor: UserListDataSource {
 
 // MARK: - UserListViewControllerOutput
 
-extension UserListInteractor: UserListViewControllerOutput {}
+extension UserListInteractor: UserListViewControllerOutput {
+}

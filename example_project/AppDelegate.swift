@@ -16,8 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UserListViewController()
-        window?.makeKeyAndVisible()
+
+        let userListViewController = UserListViewController()
+        let navigationViewController = UINavigationController(rootViewController: userListViewController)//SANavigationController(rootViewController: loginViewController)
+        let navigationController = UINavigationController(rootViewController: userListViewController)
+        //navigationController.navigationBar.isTranslucent = false
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
         return true
     }
 }

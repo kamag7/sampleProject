@@ -22,7 +22,6 @@ final class UserListViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         UserListConfigurator.sharedInstance.configure(viewController: self)
-        self.title = "title"
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -35,14 +34,22 @@ final class UserListViewController: UIViewController {
 
     override func loadView() {
         view = currentView
+        currentView?.delegate = self
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         currentView?.configure(items: UserListWorker().getUsers())
+        self.title = "User list"
     }
 }
 
 // MARK: - UserListPresenterOutput
 
 extension UserListViewController: UserListPresenterOutput {}
+
+extension UserListViewController: UserListViewDelegate {
+    func userListView(userListView: UserListView, didTapItemAt index: Int) {
+        router?.navigateToUserDetails(with: UserListWorker().getUsers()[index] )
+    }
+}
