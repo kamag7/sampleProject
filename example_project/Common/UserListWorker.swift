@@ -9,7 +9,7 @@
 import Foundation
 
 class UserListWorker {
-    func getUsers() -> [UserDTO]{
+    func getMockUsers() -> [UserDTO]{
         var  users: [UserDTO] = []
 
         let user0 = UserDTO(name: "Adam", sourceApi: .daliyMotion)
@@ -24,6 +24,9 @@ class UserListWorker {
         let user3 = UserDTO(name: "Kasia", sourceApi: .gitHub)
         users.append(user3)
         return users
+    }
 
+    func getUsers() -> [UserDTO] {
+        return UsersApi().getUsers()
     }
 }
