@@ -8,7 +8,9 @@
 
 import UIKit
 
-protocol UserListPresenterOutput: class {}
+protocol UserListPresenterOutput: class {
+    func  displayUsers(users: [UserDTO])
+}
 
 class UserListPresenter {
 
@@ -23,4 +25,11 @@ class UserListPresenter {
 
 // MARK: - UserListInteractorOutput
 
-extension UserListPresenter: UserListInteractorOutput {}
+extension UserListPresenter: UserListInteractorOutput {
+    func present(users: [UserDTO]) {
+        DispatchQueue.main.async {
+            self.output?.displayUsers(users: users)
+        }
+
+    }
+}

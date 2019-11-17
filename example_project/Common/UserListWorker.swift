@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Hydra
 
 class UserListWorker {
     func getMockUsers() -> [UserDTO]{
@@ -27,6 +28,10 @@ class UserListWorker {
     }
 
     func getUsers() -> [UserDTO] {
-        return UsersApi().getUsers()
+        return getMockUsers()
+    }
+
+    func getUsersFromSerwises() -> Promise<[UserDTO]> {
+        UsersApi().getUsers()
     }
 }

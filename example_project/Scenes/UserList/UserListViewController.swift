@@ -8,7 +8,9 @@
 
 import UIKit
 
-protocol UserListViewControllerOutput {}
+protocol UserListViewControllerOutput {
+    func handlerViewDidLoad()
+}
 
 final class UserListViewController: UIViewController {
 
@@ -39,14 +41,18 @@ final class UserListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentView?.configure(items: UserListWorker().getUsers())
+        output.handlerViewDidLoad()
         self.title = "User list"
     }
 }
 
 // MARK: - UserListPresenterOutput
 
-extension UserListViewController: UserListPresenterOutput {}
+extension UserListViewController: UserListPresenterOutput {
+    func displayUsers(users: [UserDTO]) {
+        currentView?.configure(items: users)
+    }
+}
 
 extension UserListViewController: UserListViewDelegate {
     func userListView(userListView: UserListView, didTapItemAt index: Int) {

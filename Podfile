@@ -6,6 +6,7 @@ target 'example_project' do
   use_frameworks!
 
   pod 'Alamofire', '~> 5.0.0-rc.3'
+  pod 'HydraAsync'
   # Pods for example_project
 
   target 'example_projectTests' do

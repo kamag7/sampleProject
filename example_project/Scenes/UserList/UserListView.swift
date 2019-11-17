@@ -25,6 +25,7 @@ class UserListView: UIView {
 
     func configure(items: [UserDTO]) {
         self.items = items
+        tableView.reloadData()
     }
 
     func configureTableView() {

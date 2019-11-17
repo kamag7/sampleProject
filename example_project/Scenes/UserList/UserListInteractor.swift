@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Hydra
 
-protocol UserListInteractorOutput {}
+protocol UserListInteractorOutput {
+    func present(users: [UserDTO])
+}
 
 protocol UserListDataSource: class {}
 
@@ -26,4 +29,9 @@ class UserListInteractor: UserListDataSource {
 // MARK: - UserListViewControllerOutput
 
 extension UserListInteractor: UserListViewControllerOutput {
+    func handlerViewDidLoad() {
+        UserListWorker().getUsersFromSerwises().then { users in
+            self.output.present(users: users)
+        }
+    }
 }

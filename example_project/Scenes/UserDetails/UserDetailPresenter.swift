@@ -27,6 +27,8 @@ class UserDetailPresenter {
 
 extension UserDetailPresenter: UserDetailInteractorOutput {
     func presentUser(userDTO: UserDTO) {
-        output?.displayUser(userDTO: userDTO)
+        DispatchQueue.main.async {
+            self.output?.displayUser(userDTO: userDTO)
+        }
     }
 }
