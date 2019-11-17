@@ -16,8 +16,8 @@ class UserDetailView: UIView {
     func configure(userDTO: UserDTO) {
         nameUserLabel.text = userDTO.name
         kindAPILabel.text = getTextLabelToSourceApi(sourceApi: userDTO.sourceApi)
-        guard let image = userDTO.image else { return }
-        avatarImageView.image = image
+//        guard let image = userDTO.image else { return }
+//        avatarImageView.image = image
     }
 
     func getTextLabelToSourceApi(sourceApi: SourceApi) -> String {

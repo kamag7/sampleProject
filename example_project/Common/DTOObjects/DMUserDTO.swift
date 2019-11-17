@@ -31,25 +31,22 @@ class ListDTO: Codable {
 
 }
 
-class DMUserDTO: Codable {
-    var name: String = ""
-    var imageString: String? = ""
-    var sourceApi: SourceApi = .gitHub
+class DMUserDTO: UserDTO, Codable {
 
 // MARK: - Codable
 
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-
+        super.init(sourceApi: .daliyMotion)
         name = try container.decode(String.self, forKey: .name)
-        imageString = try container.decodeIfPresent(String.self, forKey: .imageString)
+        imageStringUrl = try container.decodeIfPresent(String.self, forKey: .imageString)
     }
 
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
 
         try container.encode(name, forKey: .name)
-        try container.encodeIfPresent(imageString, forKey: .imageString)
+        try container.encodeIfPresent(imageStringUrl, forKey: .imageString)
     }
 
 

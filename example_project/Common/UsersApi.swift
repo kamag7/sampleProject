@@ -36,7 +36,7 @@ private extension UsersApi {
                 if let JSON = response.data {
                     print("JSON: \(JSON)")
                     let users = try? JSONDecoder().decode([GHUserDTO].self, from: JSON)
-                    //print("users: \(users)")
+                    print("users: \(users)")
                 }
                }
         return []

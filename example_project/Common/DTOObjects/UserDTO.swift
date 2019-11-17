@@ -16,12 +16,12 @@ enum SourceApi {
 
 class UserDTO {
     var name: String = ""
-    var image: UIImage? = nil
+    var imageStringUrl: String? = ""
     var sourceApi: SourceApi
 
-    init(name: String, image: UIImage? = nil, sourceApi: SourceApi) {
+    init(name: String = "", imageStringUrl: String = "", sourceApi: SourceApi) {
         self.name = name
-        self.image = image
+        self.imageStringUrl = imageStringUrl
         self.sourceApi = sourceApi
     }
 }
