@@ -10,6 +10,7 @@ import UIKit
 
 protocol UserListViewControllerOutput {
     func handlerViewDidLoad()
+    func navigateToUserDetails(idx: Int)
 }
 
 final class UserListViewController: UIViewController {
@@ -52,10 +53,14 @@ extension UserListViewController: UserListPresenterOutput {
     func displayUsers(users: [UserDTO]) {
         currentView?.configure(items: users)
     }
+
+    func navigateToUserDetails(user: UserDTO) {
+        router?.navigateToUserDetails(with: user)
+    }
 }
 
 extension UserListViewController: UserListViewDelegate {
     func userListView(userListView: UserListView, didTapItemAt index: Int) {
-        router?.navigateToUserDetails(with: UserListWorker().getUsers()[index] )
+        output.navigateToUserDetails(idx: index)
     }
 }

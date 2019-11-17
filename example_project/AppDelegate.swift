@@ -18,9 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         let userListViewController = UserListViewController()
-        let navigationViewController = UINavigationController(rootViewController: userListViewController)//SANavigationController(rootViewController: loginViewController)
+        let navigationViewController = UINavigationController(rootViewController: userListViewController)
         let navigationController = UINavigationController(rootViewController: userListViewController)
-        //navigationController.navigationBar.isTranslucent = false
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
         return true

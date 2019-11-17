@@ -7,6 +7,7 @@ target 'example_project' do
 
   pod 'Alamofire', '~> 5.0.0-rc.3'
   pod 'HydraAsync'
+  pod 'Kingfisher'
   # Pods for example_project
 
   target 'example_projectTests' do

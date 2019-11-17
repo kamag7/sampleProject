@@ -44,8 +44,11 @@ extension UserListView: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let row = indexPath.row
         cell.textLabel?.text = items[row].name
-        cell.imageView?.image = #imageLiteral(resourceName: "no_image")
-
+        DispatchQueue.main.async {
+            let url = URL(string: self.items[row].imageStringUrl ?? "")
+            cell.imageView?.kf.setImage(with: url)
+        }
+        
         return cell
     }
 

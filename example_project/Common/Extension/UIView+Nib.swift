@@ -6,7 +6,6 @@
 //  Copyright © 2019 magdalena.skawinska. All rights reserved.
 //
 
-//import Foundation
 import UIKit
 
 extension Bundle {

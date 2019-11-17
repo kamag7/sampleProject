@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserDetailView: UIView {
     @IBOutlet weak var nameUserLabel: UILabel!
@@ -16,8 +17,8 @@ class UserDetailView: UIView {
     func configure(userDTO: UserDTO) {
         nameUserLabel.text = userDTO.name
         kindAPILabel.text = getTextLabelToSourceApi(sourceApi: userDTO.sourceApi)
-//        guard let image = userDTO.image else { return }
-//        avatarImageView.image = image
+        let url = URL(string:userDTO.imageStringUrl ?? "")
+        avatarImageView.kf.setImage(with: url)
     }
 
     func getTextLabelToSourceApi(sourceApi: SourceApi) -> String {

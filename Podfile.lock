@@ -1,20 +1,26 @@
 PODS:
   - Alamofire (5.0.0-rc.3)
   - HydraAsync (2.0.2)
+  - Kingfisher (5.8.2):
+    - Kingfisher/Core (= 5.8.2)
+  - Kingfisher/Core (5.8.2)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.3)
   - HydraAsync
+  - Kingfisher
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - HydraAsync
+    - Kingfisher
 
 SPEC CHECKSUMS:
   Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   HydraAsync: 690b8c1c9dcde7ee1093cee363a6c1ce36b56a83
+  Kingfisher: 3adc15096595f5aed800bb0d5cb757fc58b2d2dd
 
-PODFILE CHECKSUM: d3e237c95a80ca82f1f5860b7cb60e456e9c21ae
+PODFILE CHECKSUM: 4a68db4fc4d7f709d4845d1bf6cc1d1e37099cf5
 
 COCOAPODS: 1.8.3

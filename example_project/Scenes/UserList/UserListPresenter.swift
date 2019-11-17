@@ -9,7 +9,8 @@
 import UIKit
 
 protocol UserListPresenterOutput: class {
-    func  displayUsers(users: [UserDTO])
+    func displayUsers(users: [UserDTO])
+    func navigateToUserDetails(user: UserDTO)
 }
 
 class UserListPresenter {
@@ -26,10 +27,15 @@ class UserListPresenter {
 // MARK: - UserListInteractorOutput
 
 extension UserListPresenter: UserListInteractorOutput {
+    func navigateToUser(user: UserDTO) {
+        DispatchQueue.main.async {
+            self.output?.navigateToUserDetails(user: user)
+        }
+    }
+
     func present(users: [UserDTO]) {
         DispatchQueue.main.async {
             self.output?.displayUsers(users: users)
         }
-
     }
 }
